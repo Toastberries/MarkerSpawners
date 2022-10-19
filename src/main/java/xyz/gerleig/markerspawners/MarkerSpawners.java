@@ -5,7 +5,6 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.SpawnerSpawnEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -25,10 +24,17 @@ public final class MarkerSpawners extends JavaPlugin implements Listener {
 
         if (entity.getScoreboardTags().contains("MarkerSpawner")) {
             e.setCancelled(true);
-            getLogger().info(world.getNearbyEntities(entity.getLocation(), 9, 9, 9, (nearbyEntity) -> nearbyEntity.getType() == EntityType.ARMOR_STAND).size() + 1 + " yo!");
 
-            Entity placeholder = world.spawnEntity(entity.getLocation().add(0, 1, 0), EntityType.ARMOR_STAND);
-            entity.getScoreboardTags().forEach(placeholder::addScoreboardTag);
+            Object[] args = entity.getScoreboardTags().toArray(); // FIX THIS
+            // 0: "MarkerSpawner" / 1: ID / 2: Type / 3: Amount / 4: Distance
+            String id = (String) args[1];
+            EntityType type = EntityType.valueOf((String) args[2]); // FIX THIS ALSO
+            int amount = Integer.parseInt((String) args[3]);
+            double distance = Double.parseDouble((String) args[4]);
+
+            if (world.getNearbyEntities(entity.getLocation(), distance, distance, distance, (nearbyEntity) -> nearbyEntity.getType() == type).size() + 1 > amount) return;
+
+            world.spawnEntity(entity.getLocation().add(0, 1, 0), EntityType.ARMOR_STAND).addScoreboardTag(id);
         }
 
     }
