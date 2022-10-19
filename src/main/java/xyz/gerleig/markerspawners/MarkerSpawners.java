@@ -22,15 +22,16 @@ public final class MarkerSpawners extends JavaPlugin implements Listener {
         World world = entity.getWorld();
         //getLogger().info(entity.getScoreboardTags().toString());
 
-        if (entity.getScoreboardTags().contains("MarkerSpawner")) {
+        if (entity.getScoreboardTags().contains("1-MarkerSpawner")) {
             e.setCancelled(true);
 
             Object[] args = entity.getScoreboardTags().toArray(); // FIX THIS
             // 0: "MarkerSpawner" / 1: ID / 2: Type / 3: Amount / 4: Distance
-            String id = (String) args[1];
-            EntityType type = EntityType.valueOf((String) args[2]); // FIX THIS ALSO
-            int amount = Integer.parseInt((String) args[3]);
-            double distance = Double.parseDouble((String) args[4]);
+            String id = args[1].toString().substring(2);
+            EntityType type = EntityType.valueOf("STRAY"); // FIX THIS ALSO
+            int amount = Integer.parseInt(args[3].toString().substring(2));
+            double distance = Double.parseDouble(args[4].toString().substring(2));
+            getLogger().info(id + " " + type + " " + amount + " " + distance);
 
             if (world.getNearbyEntities(entity.getLocation(), distance, distance, distance, (nearbyEntity) -> nearbyEntity.getType() == type).size() + 1 > amount) return;
 
