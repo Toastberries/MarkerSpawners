@@ -4,7 +4,17 @@ main: xyz.gerleig.markerspawners.MarkerSpawners
 api-version: 1.18
 authors: [ gerleig ]
 description: made to bridge vanilla spawners and mythicmobs, for blockgame.info
+depend: [ MythicMobs ]
 permissions:
   markerspawners.break:
     description: "ability to break markerspawners"
     default: op
+  markerspawners.create:
+    description: "ability to create markerspawners"
+    default: op
+
+commands:
+  createspawner:
+    description: "creates placeable markerspawner"
+    usage: "/createspawner <mobname>"
+    permission: markerspawners.create
