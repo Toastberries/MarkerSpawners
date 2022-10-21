@@ -2,7 +2,6 @@ package xyz.gerleig.markerspawners;
 
 import xyz.gerleig.markerspawners.handlers.SpawnerSpawnEvent;
 import xyz.gerleig.markerspawners.handlers.SpawnerProtection;
-import xyz.gerleig.markerspawners.commands.CreateSpawner;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,7 +11,6 @@ public final class MarkerSpawners extends JavaPlugin {
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new SpawnerSpawnEvent(), this);
         getServer().getPluginManager().registerEvents(new SpawnerProtection(), this);
-        getCommand("createspawner").setExecutor(new CreateSpawner());
     }
 
 

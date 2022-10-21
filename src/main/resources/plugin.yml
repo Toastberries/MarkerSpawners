@@ -16,5 +16,5 @@ permissions:
 commands:
   createspawner:
     description: "creates placeable markerspawner"
-    usage: "/createspawner <mobname>"
+    usage: "Usage: /createspawner <Mythicmob ID>"
     permission: markerspawners.create
