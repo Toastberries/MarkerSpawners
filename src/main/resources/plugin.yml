@@ -9,12 +9,3 @@ permissions:
   markerspawners.break:
     description: "ability to break markerspawners"
     default: op
-  markerspawners.create:
-    description: "ability to create markerspawners"
-    default: op
-
-commands:
-  createspawner:
-    description: "creates placeable markerspawner"
-    usage: "Usage: /createspawner <Mythicmob ID>"
-    permission: markerspawners.create
