@@ -10,7 +10,7 @@ A simple mythicmobs add-on plugin that gives server owners the ability to create
 + Protect spawners from players and explosions
 
 ## Usage
-##### Creating Spawners
+### Creating Spawners
 Everything is set with entity tags! Here's the list of variables and default values and explanations. 
 The tag "MarkerSpawner" is mandatory!
 ```
@@ -35,10 +35,10 @@ level scaling AngrySludge that spawns 20 blocks in the air for a sure suprise
 /setblock ~ ~ ~ minecraft:spawner{SpawnData:{entity:{id:marker,Tags:[MarkerSpawner, id_AngrySludge, yOffset_20]}}}
 ```
 
-##### Protecting Spawners
+### Protecting Spawners
 All spawners which spawn markes are protected automagically, they cannot be broken or blown up. To be able to break the spawner the player must have the "markerspawners.break" permission node or OP
 
 
-##### So...
+### So...
 This plugin isn't that user-friendly right now as it was created specifically for a project, may add commands later to get spawners instead.
 
