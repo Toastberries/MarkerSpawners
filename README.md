@@ -1,7 +1,7 @@
 # MarkerSpawners
 
 ## About
-A simple mythicmobs addon plugin that gives server owners the ability to create vanilla spawners that spawn mythicmobs. These spawners can be used in generated structures also.
+A simple mythicmobs add-on plugin that gives server owners the ability to create vanilla spawners that spawn mythicmobs. These spawners can be used in generated structures also.
 
 ## Features
 + Spawn mythicmobs by ID
@@ -11,7 +11,7 @@ A simple mythicmobs addon plugin that gives server owners the ability to create 
 
 ## Usage
 ##### Creating Spawners
-Everything is set with entity tags! Here's the list of variables and default values and explenations. 
+Everything is set with entity tags! Here's the list of variables and default values and explanations. 
 The tag "MarkerSpawner" is mandatory!
 ```
  String |      id       |  -  | ID of a MythicMob, case sensitive
@@ -20,7 +20,7 @@ Intiger |  spawnLimit   |  6  | maximum number of spawned mobs inside checkDista
  Double | checkDistance |  9  | size of cube centered on spawner that counts mobs
  Double |    yOffset    |  1  | offset upward, if 0 mobs will spawn in the floor
 ```
-Besides theese you can also use vanilla spawner settings, read up on them [here](https://minecraft.fandom.com/wiki/Spawner#Block_data)! (MaxNearbyEntities is overwritten)
+Besides these you can also use vanilla spawner settings, read up on them [here](https://minecraft.fandom.com/wiki/Spawner#Block_data)! (MaxNearbyEntities shouldn't be used)
 
 And here are some examples of how to make a spawner. 
 Entity should be marker and variable name and value should be separated with an underscore.
@@ -40,5 +40,5 @@ All spawners which spawn markes are protected automagically, they cannot be brok
 
 
 ##### So...
-This plugin isn't that user friendly right now as it was created specifically for a project, may add commands later to get spawners instead.
+This plugin isn't that user-friendly right now as it was created specifically for a project, may add commands later to get spawners instead.
 
