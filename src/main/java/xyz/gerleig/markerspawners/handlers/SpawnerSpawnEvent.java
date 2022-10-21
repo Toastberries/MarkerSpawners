@@ -19,12 +19,13 @@ public class SpawnerSpawnEvent implements Listener {
         Entity entity = e.getEntity();
 
         if (!entity.getScoreboardTags().contains("MarkerSpawner")) return;
-        World world = entity.getWorld();
-        Set<String> tags = entity.getScoreboardTags();
         e.setCancelled(true);
 
-        String Id = "EXAMPLE_MOB";
-        EntityType Type = EntityType.ZOMBIE;
+        World world = entity.getWorld();
+        Set<String> tags = entity.getScoreboardTags();
+
+
+        String Id = "ExampleMob";
         int SpawnLimit = 6;
         double CheckDistance = 9;
         double YOffset = 1;
@@ -34,24 +35,24 @@ public class SpawnerSpawnEvent implements Listener {
             if (split.length == 0) break;
             switch (split[0]) {
                 case "Id" -> Id = split[1];
-                case "Type" -> Type = EntityType.valueOf(split[1]);
                 case "SpawnLimit" -> SpawnLimit = Integer.parseInt(split[1]);
                 case "CheckDistance" -> CheckDistance = Double.parseDouble(split[1]);
                 case "YOffset" -> YOffset = Double.parseDouble(split[1]);
             }
         }
 
-        EntityType finalType = Type;
-        if (world.getNearbyEntities(e.getSpawner().getLocation(), CheckDistance, CheckDistance, CheckDistance, (nearbyEntity) -> nearbyEntity.getType() == finalType).size() + 1 > SpawnLimit) return;
-        //Entity spawn = world.spawnEntity(entity.getLocation().add(0, YOffset, 0), PlaceholderType, CreatureSpawnEvent.SpawnReason.CUSTOM);
-        //spawn.addScoreboardTag("MarkerSpawner");
-        //spawn.addScoreboardTag(Id);
         MythicMob mob = MythicBukkit.inst().getMobManager().getMythicMob(Id).orElse(null);
+        if (mob == null) return;
         Location spawnLocation = entity.getLocation().add(0, YOffset, 0);
-        if(mob != null){
-            // spawns mob
-            world.spawnParticle(Particle.EXPLOSION_NORMAL, spawnLocation.add(0,1,0), 12, 0.3,0.3,0.3, 0.01);
-            mob.spawn(BukkitAdapter.adapt(spawnLocation),1);
+        EntityType Type = EntityType.valueOf(mob.getEntityType());
+
+        if (world.getNearbyEntities(e.getSpawner().getLocation(), CheckDistance, CheckDistance, CheckDistance, (nearbyEntity) -> nearbyEntity.getType() == Type).size() < SpawnLimit) {
+            //Entity spawn = world.spawnEntity(entity.getLocation().add(0, YOffset, 0), PlaceholderType, CreatureSpawnEvent.SpawnReason.CUSTOM);
+            //spawn.addScoreboardTag("MarkerSpawner");
+            //spawn.addScoreboardTag(Id);
+
+            world.spawnParticle(Particle.EXPLOSION_NORMAL, spawnLocation.add(0, 1, 0), 12, 0.3, 0.3, 0.3, 0.01);
+            mob.spawn(BukkitAdapter.adapt(spawnLocation), 0);
         }
 
 
