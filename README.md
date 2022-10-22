@@ -11,9 +11,10 @@ A simple mythicmobs add-on plugin that gives server owners the ability to create
 
 ## Usage
 ### Creating Spawners
-Everything is set with entity tags! Here's the list of variables and default values and explanations. 
+Everything is set with entity tags! Here's the list of variables, default values and explanations. 
 The tag "MarkerSpawner" is mandatory!
 ```
+  TYPE      VARIABLE    DEFAULT                   EXPLANATION
  String |      id       | N/A | ID of a MythicMob, case sensitive
 Intiger |     level     | -1  | Level of spawned mob, -1 = level scaling
 Intiger |  spawnLimit   |  6  | maximum number of spawned mobs inside checkDistance
