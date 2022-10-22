@@ -1,7 +1,7 @@
 # MarkerSpawners
 
 ## About
-A simple mythicmobs add-on plugin that gives server owners the ability to create vanilla spawners that spawn mythicmobs. These spawners can be used in generated structures also. Download it the plugin [here](https://github.com/gerleig/MarkerSpawners/releases/latest)!
+A simple mythicmobs add-on plugin that gives server owners the ability to create vanilla spawners that spawn mythicmobs. These spawners can be used in generated structures also. Download the plugin [here](https://github.com/gerleig/MarkerSpawners/releases/latest)!
 
 ## Features
 + Spawn mythicmobs by ID
