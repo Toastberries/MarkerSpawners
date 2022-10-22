@@ -5,7 +5,7 @@ A simple mythicmobs add-on plugin that gives server owners the ability to create
 
 ## Features
 + Spawn mythicmobs by ID
-+ Set normally hardcoded spawner mechanics (like mob spawn limit)
++ Set normally hardcoded spawner mechanics (like the area of the mob spawn limit check)
 + Set specific level for spawned mobs OR use level scaling defined by mythicmobs config
 + Protect spawners from players and explosions
 
